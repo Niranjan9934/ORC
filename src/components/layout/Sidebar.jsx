@@ -87,8 +87,7 @@ export default function Sidebar() {
       <aside
         className={`
           relative flex h-screen flex-col
-          border-r border-slate-200/80
-          bg-white
+          app-sidebar border-r
           transition-all duration-300
           ${collapsed ? "w-16" : "w-60"}
         `}
