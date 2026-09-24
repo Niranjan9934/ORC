@@ -93,19 +93,21 @@ export default function Sidebar() {
         `}
       >
         {/* Logo */}
-        <div className="flex h-[73px] shrink-0 items-center border-b border-slate-100 px-4">
+        <div className="sidebar-brand flex h-[73px] shrink-0 items-center border-b px-4">
           <div
             className={`
               flex items-center
               ${collapsed ? "justify-center w-full" : ""}
             `}
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-bold">
+            <div className="sidebar-logo flex h-9 w-9 items-center justify-center rounded-xl text-white font-bold">
               0
             </div>
 
             {!collapsed && (
-              <span className="ml-3 text-lg font-bold text-slate-800">ORC</span>
+              <span className="sidebar-brand-name ml-3 text-lg font-bold">
+                ORC
+              </span>
             )}
           </div>
         </div>
@@ -114,10 +116,7 @@ export default function Sidebar() {
         <div className="flex-1 overflow-y-auto px-2 py-2">
           <nav>
             {navGroups.map((group, groupIndex) => (
-              <div
-                key={groupIndex}
-                className="border-b border-slate-200/80 py-2"
-              >
+              <div key={groupIndex} className="sidebar-nav-group border-b py-2">
                 {group.map((item) => (
                   <SidebarItem
                     key={item.label}
@@ -131,31 +130,30 @@ export default function Sidebar() {
         </div>
 
         {/* Bottom account */}
-        <div className="border-t border-slate-200 p-3">
+        <div className="sidebar-account border-t p-3">
           <div
             className={`
               flex items-center gap-3 rounded-xl
               p-2
-              hover:bg-indigo-50
+              sidebar-account-card
               cursor-pointer
               ${collapsed ? "justify-center" : ""}
             `}
           >
-            <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-xs font-bold text-white">
+            <div className="sidebar-avatar relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-xs font-bold text-white">
               {initials}
               <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-400" />
             </div>
 
             {!collapsed && (
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-bold text-slate-900">
+                <p className="sidebar-account-name truncate text-sm font-bold">
                   {name}
                 </p>
 
-                <p className="truncate text-[10px] text-slate-500">
+                <p className="sidebar-account-email truncate text-[10px]">
                   {email}
                 </p>
-
               </div>
             )}
           </div>
@@ -163,7 +161,7 @@ export default function Sidebar() {
             type="button"
             onClick={signOut}
             title="Sign out"
-            className={`mt-2 flex w-full items-center rounded-xl px-2 py-2 text-xs font-semibold text-slate-500 transition hover:bg-slate-100 hover:text-slate-800 ${
+            className={`sidebar-sign-out mt-2 flex w-full items-center rounded-xl px-2 py-2 text-xs font-semibold transition ${
               collapsed ? "justify-center" : "gap-2"
             }`}
           >
@@ -181,9 +179,7 @@ export default function Sidebar() {
           flex h-7 w-7 -translate-y-1/2
           items-center justify-center
           rounded-full
-          border border-slate-200
-          bg-white
-          text-slate-500
+          sidebar-collapse-button border
           shadow-sm
           hover:bg-slate-100
         "
@@ -208,11 +204,7 @@ function SidebarItem({ item, collapsed }) {
         transition-all duration-200
         ${collapsed ? "justify-center px-0" : "px-3"}
 
-        ${
-          isActive
-            ? "bg-gradient-to-r from-blue-50 via-indigo-50 to-violet-50 text-indigo-700 shadow-sm ring-1 ring-indigo-200/60"
-            : "text-slate-600 hover:bg-indigo-50/40 hover:text-indigo-700"
-        }
+        ${isActive ? "sidebar-nav-link--active shadow-sm ring-1" : "sidebar-nav-link"}
       `}
     >
       {({ isActive }) => (
@@ -224,8 +216,7 @@ function SidebarItem({ item, collapsed }) {
                 h-6 w-1
                 -translate-y-1/2
                 rounded-r-full
-                bg-gradient-to-b
-                from-blue-500 to-indigo-600
+                sidebar-nav-indicator
               "
             />
           )}
@@ -236,8 +227,8 @@ function SidebarItem({ item, collapsed }) {
               shrink-0
               ${
                 isActive
-                  ? "scale-105 text-indigo-600"
-                  : "text-slate-400 group-hover:scale-105 group-hover:text-indigo-500"
+                  ? "sidebar-nav-icon--active scale-105"
+                  : "sidebar-nav-icon group-hover:scale-105"
               }
             `}
           />

@@ -12,7 +12,6 @@ import {
   Star,
   Target,
   Users,
-  Video,
   X,
 } from "lucide-react";
 

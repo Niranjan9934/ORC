@@ -8,6 +8,8 @@
   --color-muted-background: #f8fafc;
   --color-border: #e2e8f0;
   --color-text: #0f172a;
+  --color-text-muted: #64748b;
+  --color-icon: #94a3b8;
 }
 
 [data-theme="red"] {
@@ -19,6 +21,8 @@
   --color-muted-background: #fef2f2;
   --color-border: #fecaca;
   --color-text: #450a0a;
+  --color-text-muted: #8f3030;
+  --color-icon: #c76565;
 }
 
 [data-theme="green"] {
@@ -30,6 +34,8 @@
   --color-muted-background: #f0fdf4;
   --color-border: #bbf7d0;
   --color-text: #052e16;
+  --color-text-muted: #39764e;
+  --color-icon: #6ba77c;
 }
 
 [data-theme="blue"] {
@@ -41,6 +47,8 @@
   --color-muted-background: #eff6ff;
   --color-border: #bfdbfe;
   --color-text: #0f172a;
+  --color-text-muted: #496a94;
+  --color-icon: #7c9fc8;
 }
 
 [data-theme="purple"] {
@@ -52,6 +60,8 @@
   --color-muted-background: #faf5ff;
   --color-border: #ddd6fe;
   --color-text: #2e1065;
+  --color-text-muted: #715b9c;
+  --color-icon: #a494c7;
 }
 
 body {
@@ -68,6 +78,88 @@ body {
   background: var(--color-surface);
   border-color: var(--color-border);
 }
+
+/* Sidebar uses theme tokens rather than fixed Tailwind palette classes. */
+.sidebar-brand,
+.sidebar-nav-group,
+.sidebar-account {
+  border-color: var(--color-border);
+}
+
+.sidebar-logo,
+.sidebar-avatar {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+}
+
+.sidebar-brand-name,
+.sidebar-account-name {
+  color: var(--color-text);
+}
+
+.sidebar-account-email,
+.sidebar-sign-out {
+  color: var(--color-text-muted);
+}
+
+.sidebar-account-card:hover,
+.sidebar-sign-out:hover,
+.sidebar-collapse-button:hover {
+  background: var(--color-muted-background);
+  color: var(--color-secondary);
+}
+
+.sidebar-collapse-button {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.sidebar-nav-link {
+  color: var(--color-text-muted);
+}
+
+.sidebar-nav-link:hover {
+  background: color-mix(in srgb, var(--color-accent) 9%, var(--color-surface));
+  color: var(--color-secondary);
+}
+
+.sidebar-nav-link--active {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--color-accent) 12%, var(--color-surface)), color-mix(in srgb, var(--color-secondary) 10%, var(--color-surface)));
+  color: var(--color-secondary);
+  --tw-ring-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+.sidebar-nav-indicator {
+  background: linear-gradient(to bottom, var(--color-accent), var(--color-secondary));
+}
+
+.sidebar-nav-icon {
+  color: var(--color-icon);
+}
+
+.sidebar-nav-link:hover .sidebar-nav-icon,
+.sidebar-nav-icon--active {
+  color: var(--color-accent);
+}
+
+/* Map the palette utilities already used by screens to the selected theme. */
+[data-theme] .bg-white { background-color: var(--color-surface); }
+[data-theme] .bg-slate-50, [data-theme] .bg-slate-50\/70, [data-theme] .bg-slate-100 { background-color: var(--color-muted-background); }
+[data-theme] .border-slate-100, [data-theme] .border-slate-200, [data-theme] .border-slate-200\/80, [data-theme] .border-slate-200\/70 { border-color: var(--color-border); }
+[data-theme] .text-slate-900, [data-theme] .text-slate-800, [data-theme] .text-slate-700 { color: var(--color-text); }
+[data-theme] .text-slate-600, [data-theme] .text-slate-500, [data-theme] .text-slate-400 { color: var(--color-text-muted); }
+[data-theme] .text-indigo-500, [data-theme] .text-indigo-600, [data-theme] .text-indigo-700, [data-theme] .text-indigo-800, [data-theme] .text-blue-600 { color: var(--color-accent); }
+[data-theme] .bg-indigo-600 { background-color: var(--color-secondary); }
+[data-theme] .bg-indigo-50, [data-theme] .bg-indigo-50\/40, [data-theme] .bg-indigo-50\/30, [data-theme] .bg-blue-50, [data-theme] .bg-violet-50 { background-color: var(--color-muted-background); }
+[data-theme] .border-indigo-100, [data-theme] .border-indigo-200, [data-theme] .border-indigo-300, [data-theme] .border-indigo-400 { border-color: var(--color-border); }
+[data-theme] .bg-indigo-100 { background-color: color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)); }
+[data-theme] .hover\:bg-slate-100:hover, [data-theme] .hover\:bg-indigo-50:hover, [data-theme] .hover\:bg-indigo-50\/30:hover { background-color: var(--color-muted-background); }
+[data-theme] .hover\:text-slate-800:hover, [data-theme] .hover\:text-indigo-600:hover, [data-theme] .hover\:text-indigo-700:hover, [data-theme] .hover\:text-indigo-800:hover { color: var(--color-secondary); }
+[data-theme] .hover\:border-indigo-200:hover, [data-theme] .focus\:border-indigo-400:focus { border-color: var(--color-accent); }
+[data-theme] .focus\:ring-indigo-100:focus { --tw-ring-color: color-mix(in srgb, var(--color-accent) 20%, transparent); }
+[data-theme] .from-blue-500, [data-theme] .from-blue-600, [data-theme] .from-indigo-600, [data-theme] .from-violet-500 { --tw-gradient-from: var(--color-accent) var(--tw-gradient-from-position); --tw-gradient-to: color-mix(in srgb, var(--color-accent) 0%, transparent) var(--tw-gradient-to-position); }
+[data-theme] .via-indigo-50, [data-theme] .via-indigo-950 { --tw-gradient-via: var(--color-secondary) var(--tw-gradient-via-position); }
+[data-theme] .to-indigo-600, [data-theme] .to-indigo-700, [data-theme] .to-violet-700, [data-theme] .to-purple-600, [data-theme] .to-blue-600, [data-theme] .to-blue-900 { --tw-gradient-to: var(--color-secondary) var(--tw-gradient-to-position); }
 
 .app-header {
   flex-shrink: 0;
