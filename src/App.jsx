@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import WhatsNew from "./pages/WhatsNew";
 import Documents from "./pages/Document";
+import Integration from "./pages/Integration";
+import Account from "./pages/Account";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           />
           <Route path="/whats-new" element={<WhatsNew />} />
           <Route path="/documents" element={<Documents />} />
+          <Route path="/integration" element={<Integration />} />
+          <Route path="/account" element={<Account />} />
         </Route>
       </Route>
     </Routes>
