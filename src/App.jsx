@@ -9,6 +9,7 @@ import WhatsNew from "./pages/WhatsNew";
 import Documents from "./pages/Document";
 import Integration from "./pages/Integration";
 import Account from "./pages/Account";
+import Contacts from "./pages/Contacts";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/documents" element={<Documents />} />
           <Route path="/integration" element={<Integration />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/contact" element={<Contacts />} />
         </Route>
       </Route>
     </Routes>
