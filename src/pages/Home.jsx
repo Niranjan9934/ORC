@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div className="flex-1 overflow-y-auto p-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-slate-900">Home Page</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Home Pages</h1>
 
         <p className="mt-1 text-sm text-slate-500">
           Welcome back! Here's what's happening with your account.
