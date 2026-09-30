@@ -49,6 +49,17 @@ export const THEMES = [
       accent: "#7c3aed",
     },
   },
+
+  {
+    id: "black",
+    name: "Black",
+    description: "Dark black CRM theme",
+    colors: {
+      primary: "#000000",
+      secondary: "#171717",
+      accent: "#525252",
+    },
+  },
 ];
 
 export const setTheme = (theme) => {
