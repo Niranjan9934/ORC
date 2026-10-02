@@ -143,9 +143,10 @@ function CustomerCard({ customer }) {
   if (customer.featured) {
     return (
       <div
-        className="relative overflow-hidden rounded-xl p-4 text-white shadow-sm"
+        className="relative overflow-hidden rounded-xl p-4  shadow-sm"
         style={{
           background: "var(--color-primary)",
+          color: "var(--color-surface)",
         }}
       >
         <button
